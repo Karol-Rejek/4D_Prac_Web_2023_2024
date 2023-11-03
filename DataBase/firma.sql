@@ -1,0 +1,156 @@
+--------------------------------------------------------
+--  File created - pi¹tek-listopada-03-2023   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table ADDRESS
+--------------------------------------------------------
+
+  CREATE TABLE "C##FIRMA_USER"."ADDRESS" 
+   (	"ID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
+	"HOUSE_NUMBER" NUMBER, 
+	"STREET" VARCHAR2(40 BYTE), 
+	"TOWN" VARCHAR2(30 BYTE), 
+	"ZIP_CODE" VARCHAR2(5 BYTE), 
+	"POST" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table BRANCHES
+--------------------------------------------------------
+
+  CREATE TABLE "C##FIRMA_USER"."BRANCHES" 
+   (	"ID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
+	"NAME" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table DEPARTMENTS
+--------------------------------------------------------
+
+  CREATE TABLE "C##FIRMA_USER"."DEPARTMENTS" 
+   (	"ID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
+	"NAME" VARCHAR2(40 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table EMPLOYEES
+--------------------------------------------------------
+
+  CREATE TABLE "C##FIRMA_USER"."EMPLOYEES" 
+   (	"ID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
+	"NAME" VARCHAR2(40 BYTE), 
+	"SURNAME" VARCHAR2(40 BYTE), 
+	"DATEOFBIRTH" DATE, 
+	 CONSTRAINT "EMPLOYEES_PK" PRIMARY KEY ("ID") ENABLE
+   ) SEGMENT CREATION DEFERRED 
+  ORGANIZATION INDEX NOCOMPRESS PCTFREE 10 INITRANS 2 MAXTRANS 255 LOGGING
+  STORAGE(
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" 
+ PCTTHRESHOLD 50;
+--------------------------------------------------------
+--  DDL for Table POSITIONS
+--------------------------------------------------------
+
+  CREATE TABLE "C##FIRMA_USER"."POSITIONS" 
+   (	"ID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE , 
+	"NAME" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+REM INSERTING into C##FIRMA_USER.ADDRESS
+SET DEFINE OFF;
+REM INSERTING into C##FIRMA_USER.BRANCHES
+SET DEFINE OFF;
+REM INSERTING into C##FIRMA_USER.DEPARTMENTS
+SET DEFINE OFF;
+REM INSERTING into C##FIRMA_USER.EMPLOYEES
+SET DEFINE OFF;
+REM INSERTING into C##FIRMA_USER.POSITIONS
+SET DEFINE OFF;
+--------------------------------------------------------
+--  DDL for Index ADDRESS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##FIRMA_USER"."ADDRESS_PK" ON "C##FIRMA_USER"."ADDRESS" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index BRANCHES_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##FIRMA_USER"."BRANCHES_PK" ON "C##FIRMA_USER"."BRANCHES" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index DEPARTMENTS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##FIRMA_USER"."DEPARTMENTS_PK" ON "C##FIRMA_USER"."DEPARTMENTS" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index EMPLOYEES_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##FIRMA_USER"."EMPLOYEES_PK" ON "C##FIRMA_USER"."EMPLOYEES" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index POSITIONS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##FIRMA_USER"."POSITIONS_PK" ON "C##FIRMA_USER"."POSITIONS" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table DEPARTMENTS
+--------------------------------------------------------
+
+  ALTER TABLE "C##FIRMA_USER"."DEPARTMENTS" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "C##FIRMA_USER"."DEPARTMENTS" ADD CONSTRAINT "DEPARTMENTS_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table EMPLOYEES
+--------------------------------------------------------
+
+  ALTER TABLE "C##FIRMA_USER"."EMPLOYEES" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "C##FIRMA_USER"."EMPLOYEES" ADD CONSTRAINT "EMPLOYEES_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table BRANCHES
+--------------------------------------------------------
+
+  ALTER TABLE "C##FIRMA_USER"."BRANCHES" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "C##FIRMA_USER"."BRANCHES" ADD CONSTRAINT "BRANCHES_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ADDRESS
+--------------------------------------------------------
+
+  ALTER TABLE "C##FIRMA_USER"."ADDRESS" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "C##FIRMA_USER"."ADDRESS" ADD CONSTRAINT "ADDRESS_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table POSITIONS
+--------------------------------------------------------
+
+  ALTER TABLE "C##FIRMA_USER"."POSITIONS" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "C##FIRMA_USER"."POSITIONS" ADD CONSTRAINT "POSITIONS_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
