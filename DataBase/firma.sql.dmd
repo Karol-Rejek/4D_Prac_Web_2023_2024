@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="firma.sql" id="D6AB226F-3593-CA53-7A5E-7490FEDCC39E" version="3.5">
+<createdBy>karol</createdBy>
+<createdTime>2023-11-03 19:06:50 UTC</createdTime>
+<ownerDesignName>firma.sql</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>D6AB226F-3593-CA53-7A5E-7490FEDCC39E</designId>
+</OSDM_Design>
