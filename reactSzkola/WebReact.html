@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mainReact.css">
+    <title>My web</title>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+</head>
+<body>
+    <div id="startText"></div>
+    <div id="list"></div>
+    <footer id="author"></footer>
+    
+    <script type="text/babel">
+        const exampleReactElement = <h1>Witaj!</h1>;
+            ReactDOM.render(exampleReactElement, document.getElementById('startText'));
+
+        const films = [
+            { id:1, title: 'Ojciec chrzestny', year: 1972}, 
+            { id:2, title: 'Skazani na Shawshank', year: 1994},
+            { id:3, title: 'Obywatel Kane', year: 1941},
+            { id:4, title: 'Casablanca', year: 1942},
+            { id:5, title: 'Titanic', year: 1997},
+        ];
+
+        const FlimList = () => (
+            <div className="container">
+                <h2>Top 5 filmów XX wieku!</h2>
+                <ul>
+                    {films.map(film => (
+                        <li key={film.id}>
+                            <h3>{film.title}</h3>
+                            <p><strong>Year:</strong>{film.year}</p>
+                        </li>
+                    ))}
+                </ul> 
+            </div>
+        )
+        ReactDOM.render(<FlimList/>, document.getElementById('list'));
+        const name = "Karol";
+        const exampleReactElement2 = (<p>Author {name}.</p>);
+        ReactDOM.render(exampleReactElement2, document.getElementById('author'));
+    </script>
+</body>
+</html>
